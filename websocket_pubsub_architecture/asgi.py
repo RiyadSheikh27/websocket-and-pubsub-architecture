@@ -1,5 +1,5 @@
 """
-ASGI config for advance_django_channels project.
+ASGI config for websocket_pubsub_architecture project.
 
 It exposes the ASGI callable as a module-level variable named ``application``.
 
@@ -11,6 +11,6 @@ import os
 
 from django.core.asgi import get_asgi_application
 
-os.environ.setdefault('DJANGO_SETTINGS_MODULE', 'advance_django_channels.settings')
+os.environ.setdefault('DJANGO_SETTINGS_MODULE', 'websocket_pubsub_architecture.settings')
 
 application = get_asgi_application()
