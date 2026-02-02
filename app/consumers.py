@@ -1,0 +1,30 @@
+from channels.consumer import SyncConsumer, AsyncConsumer
+
+class MySyncConsumer(SyncConsumer):
+    def websocket_connect(self, event):
+        print("websocket connected...", event)
+        self.send({"type": "websocket.accept"})
+    
+    def websocket_receive(self, event):
+        print("websocket received:", event)
+        self.send({
+            "type": "websocket.send",
+            "text": "Message received!"
+        })
+
+    def websocket_disconnect(self, event):
+        print("websocket disconnected")
+        
+
+class MyAsyncConsumer(AsyncConsumer):
+    async def websocket_connect(self, event):
+        print("websocket connected...", event)
+        await self.send({
+            "type": "websocket.accept"
+        })
+
+    async def websocket_receive(self, event):
+        print("websocket received:", event)
+
+    async def websocket_disconnect(self, event):
+        print("websocket disconnected")
